@@ -2,6 +2,11 @@ package com.goodplays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
 public class GoodplaysApplication 
@@ -11,4 +16,15 @@ public class GoodplaysApplication
 		SpringApplication.run(GoodplaysApplication.class, args);
 	}
 
+	@Bean
+	public ObjectMapper getObjectMapper()
+	{
+		return new ObjectMapper();
+	}
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() 
+	{
+	    return new BCryptPasswordEncoder();
+	}
 }
