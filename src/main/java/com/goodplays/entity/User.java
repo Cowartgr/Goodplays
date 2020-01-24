@@ -1,17 +1,10 @@
 package com.goodplays.entity;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,20 +30,20 @@ public class User
 	private String role;
 
 	@Column(name = "ENABLED", nullable = false)
-	private boolean enabled;
+	private int enabled;
 
 	public User()
 	{
 
 	}
 
-	public User(String username, String password, String email, String role, boolean enabled)
+	public User(String username, String password, String email, String role)
 	{
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.role = role;
-		this.enabled = enabled;
+		this.enabled = 1;
 	}
 
 
@@ -94,7 +87,7 @@ public class User
 		this.email = email;
 	}
 
-	public boolean isEnabled()
+	public int isEnabled()
 	{
 		return enabled;
 	}
@@ -109,7 +102,7 @@ public class User
 		this.role = role;
 	}
 
-	public void setEnabled(boolean enabled)
+	public void setEnabled(int enabled)
 	{
 		this.enabled = enabled;
 	}
