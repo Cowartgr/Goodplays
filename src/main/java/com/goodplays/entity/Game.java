@@ -9,7 +9,7 @@ public class Game
 	private int gameId;
 	private String name;
 	private String imgURL;
-	private List<String> genras;
+	private List<String> genres;
 	
 	public Game()
 	{
@@ -21,7 +21,7 @@ public class Game
 		this.gameId = gameId;
 		this.name = name;
 		this.imgURL = imgURL;
-		this.genras = genras;
+		this.genres = genras;
 	}
 
 	public String getName()
@@ -54,15 +54,15 @@ public class Game
 		this.imgURL = imgURL;
 	}
 
-	public List<String> getGenras()
+	public List<String> getGenres()
 	{
-		return genras;
+		return genres;
 	}
 	
 
-	public void setGenras(List<String> genras)
+	public void setGenras(List<String> genres)
 	{
-		this.genras = genras;
+		this.genres = genres;
 	}
 	
 	
