@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class Game
 {
-	private String gameId;
+	private int gameId;
 	private String name;
 	private String imgURL;
 	private List<String> genras;
@@ -16,7 +16,7 @@ public class Game
 		
 	}
 	
-	public Game(String gameId, String name, String imgURL, List<String> genras)
+	public Game(int gameId, String name, String imgURL, List<String> genras)
 	{
 		this.gameId = gameId;
 		this.name = name;
@@ -34,12 +34,12 @@ public class Game
 		this.name = name;
 	}
 
-	public String getGameId()
+	public int getGameId()
 	{
 		return gameId;
 	}
 
-	public void setGameId(String gameId)
+	public void setGameId(int gameId)
 	{
 		this.gameId = gameId;
 	}

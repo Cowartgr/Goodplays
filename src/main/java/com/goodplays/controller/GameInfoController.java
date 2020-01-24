@@ -28,7 +28,7 @@ public class GameInfoController
 	private ObjectMapper mapper;
 	
 	@GetMapping("/{gameId}")
-	public Game getGameInfo(@PathVariable("gameId") String gameId) throws UnirestException, JsonMappingException, JsonProcessingException 
+	public Game getGameInfo(@PathVariable("gameId") int gameId) throws UnirestException, JsonMappingException, JsonProcessingException 
 	{	
 		HttpResponse<String> jsonResponse = Unirest.get("https://api.rawg.io/api/games/" + gameId)
 				  .header("Accept", "application/json")
@@ -53,7 +53,7 @@ public class GameInfoController
 		
 		for(JsonNode n : json.get("results"))
 		{			
-			results.add(new Game(n.get("id").asText(),n.get("name").asText(), n.get("background_image").asText(),n.get("genres").findValuesAsText("name")));
+			results.add(new Game(n.get("id").asInt(),n.get("name").asText(), n.get("background_image").asText(),n.get("genres").findValuesAsText("name")));
 		}
 		
 		return new GameSearchResults(json.get("count").asInt(), json.get("next").asText(), json.get("previous").asText(),results);	 
