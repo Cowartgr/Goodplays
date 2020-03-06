@@ -31,6 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 		.formLogin().defaultSuccessUrl("/profile").permitAll().and()
 		.logout().permitAll().and()
 		.csrf().disable();
+		
+		http.rememberMe().alwaysRemember(true);
 	}
 	
 	@Autowired
